@@ -1,0 +1,172 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.layout{
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 220px 1fr 220px;
+    grid-template-areas:
+        "header header header"
+        "left main right"
+        "footer footer footer";
+}
+
+.header{
+    grid-area: header;
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #1e293b;
+    color: white;
+}
+
+.header nav{
+    display: flex;
+    gap: 20px;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+}
+
+.header a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   LEFT SIDEBAR
+   ========================= */
+
+.left-sidebar {
+    grid-area: left;
+
+    padding: 20px;
+
+    background: #e2e8f0;
+}
+
+.left-sidebar ul {
+    margin-top: 15px;
+    list-style: none;
+}
+
+.left-sidebar li {
+    margin-bottom: 10px;
+}
+
+.left-sidebar a {
+    color: #334155;
+    text-decoration: none;
+}
+
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
+
+.main-content {
+    grid-area: main;
+
+    padding: 30px;
+
+    background: #f8fafc;
+}
+
+.main-content h2 {
+    margin-bottom: 20px;
+}
+
+.main-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   RIGHT SIDEBAR
+   ========================= */
+
+.right-sidebar {
+    grid-area: right;
+
+    padding: 20px;
+
+    background: #e2e8f0;
+}
+
+.right-sidebar h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.right-sidebar p {
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+    grid-area: footer;
+
+    padding: 20px;
+
+    text-align: center;
+
+    background: #1e293b;
+    color: white;
+}
+
+
+/* =========================
+   MOBILE: BELOW 768px
+   ========================= */
+
+@media (max-width: 767px) {
+
+    .layout {
+        grid-template-columns: 1fr;
+
+        grid-template-rows: auto auto auto auto auto;
+
+        grid-template-areas:
+            "header"
+            "main"
+            "left"
+            "right"
+            "footer";
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .header nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+}
+
